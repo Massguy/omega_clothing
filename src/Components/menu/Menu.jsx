@@ -14,18 +14,20 @@ class Menu extends Component {
             id:2 
         },
         {
-            title:'Handbags',
+            title:'Accessories',
             imageUrl:'https://images.pexels.com/photos/5462561/pexels-photo-5462561.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=190',
             id:3 
         },
         {
             title:'Women',
             imageUrl:'https://i.ibb.co/GCCdy8t/womens.png',
+            size:'large',
             id:4 
         },
         {
             title:'Men',
             imageUrl:'https://images.pexels.com/photos/2896840/pexels-photo-2896840.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=150&w=1260',
+            size:'large',
             id:5 
         },
     
@@ -35,8 +37,8 @@ class Menu extends Component {
         return ( 
             <div className="menu">
                 {
-                    this.state.sections.map(({title,imageUrl,id}) =>(
-                        <MenuItem key= {id} title={title} imageUrl={imageUrl}/>
+                    this.state.sections.map(({title,imageUrl,id,size}) =>(
+                        <MenuItem key= {id} title={title} imageUrl={imageUrl} size={size}/>
                     ))
                 }
             </div>
