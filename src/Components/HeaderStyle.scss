@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  margin-bottom: 25px;
+  width: 100%;
+  height: 75px;
+  justify-content: center;
+  .options {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    height: 100%;
+    .option {
+      padding: 10px 15px;
+    }
+  }
+}

@@ -4,7 +4,7 @@ import './MenuStyle.scss'
 class Menu extends Component {
     state = { 
         sections:[{
-            title:'Jackets',
+            title:'Hats',
             imageUrl:'https://images.pexels.com/photos/157675/fashion-men-s-individuality-black-and-white-157675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=220&w=220',
             id:1,
             link:'jackets'
@@ -16,7 +16,7 @@ class Menu extends Component {
             link:'', 
         },
         {
-            title:'Accessories',
+            title:'Jackets',
             imageUrl:'https://images.pexels.com/photos/5462561/pexels-photo-5462561.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=190',
             id:3,
             link:'', 
