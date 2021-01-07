@@ -5,17 +5,26 @@ import HomePage from './Components/HomePage.jsx'
 import ShopPage from './Components/ShopPage.jsx'
 import Header from './Components/Header.jsx'
 import LoginAndRegister from './Components/LoginAndRegister';
-import {auth} from './firebase/firebase.utils'
+import {auth,createUserProfile} from './firebase/firebase.utils'
 class App extends Component {
   state = {
     currentUser:null
   }
   unlinkFromAuth=null
   componentDidMount(){
-    this.unlinkFromAuth=auth.onAuthStateChanged(user =>{ this.setState({
-      currentUser:user})
-    }
-    )
+    this.unlinkFromAuth=auth.onAuthStateChanged( async user =>{ 
+      if(user){
+      const userRef= await createUserProfile(user);
+
+      userRef.onSnapshot(snapShot => {
+        this.setState({
+          id:snapShot.id,
+          ...snapShot.data()
+        })
+      })
+      }
+      this.setState({currentUser:user})
+    })
   }
 
   componentWillUnmount(){
