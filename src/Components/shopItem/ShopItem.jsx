@@ -1,6 +1,11 @@
 import React from 'react'
+import {connect} from 'react-redux';
 import './ShopItemStyle.scss';
-const ShopItem = ({id,price,name,imageUrl}) => {
+import Button from '../Button/Button'
+import {addItem} from '../../redux/cart/cart.actions'
+
+const ShopItem = ({item,addItem}) => {
+    const {name,price,imageUrl} = item
     return (<div className="shop_item">
         <div className="image" style={{backgroundImage:`url(${imageUrl})`}} />
 
@@ -8,7 +13,12 @@ const ShopItem = ({id,price,name,imageUrl}) => {
             <span className="name">{name}</span>
             <span className="name">{price}</span>
         </div>
+        <Button onClick={() => addItem(item)}inverted="true">Add to cart</Button>
     </div>  );
 }
  
-export default ShopItem;
+
+const mapDispatchToProps = dispatch => ({
+    addItem : item => dispatch(addItem(item))
+})
+export default connect(null,mapDispatchToProps)(ShopItem);
